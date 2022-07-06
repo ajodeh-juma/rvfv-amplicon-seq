@@ -1,0 +1,5 @@
+sample,fastq_1,fastq_2
+KIU-G1,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KIU-G1_S12_L001_R1_001.fastq.gz,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KIU-G1_S12_L001_R2_001.fastq.gz
+DK-B2,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/DK-B2_S7_L001_R1_001.fastq.gz,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/DK-B2_S7_L001_R2_001.fastq.gz
+KEM-BR,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KEM-BR_S15_L001_R1_001.fastq.gz,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KEM-BR_S15_L001_R2_001.fastq.gz
+KIU-B1,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KIU-B1_S9_L001_R1_001.fastq.gz,/Users/jjuma/Documents/PhD_RVF2019/data/genomics/rvfv/illumina/miseq/run/25032021/testdata/KIU-B1_S9_L001_R2_001.fastq.gz

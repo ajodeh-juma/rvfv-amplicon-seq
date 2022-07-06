@@ -1,0 +1,13 @@
+.nextflow*
+work/
+data/
+results/
+.DS_Store
+tests/
+testing/
+testing*
+*.pyc
+cluster.sh
+cluster.sbatch
+local*
+visualization_output/
