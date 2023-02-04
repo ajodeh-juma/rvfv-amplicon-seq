@@ -1,7 +1,8 @@
 .nextflow*
 work/
-data/
+data/rvfv/
 results/
+outdir/
 .DS_Store
 tests/
 testing/
@@ -11,3 +12,7 @@ cluster.sh
 cluster.sbatch
 local*
 visualization_output/
+*.idea
+*.DS_Store
+.gitattributes
+#.github/

@@ -96,6 +96,7 @@ def build_snpeff_db(reference, gff, snpeff_db, snpeff_config):
 
     # copy the files 
     copy_file(src=gff, dest=os.path.join(snpeff_genes_dir, 'genes.gff'))
+    # copy_file(src=gff, dest=os.path.join(snpeff_genes_dir, 'genes.gtf'))
     copy_file(src=reference, dest=os.path.join(snpeff_genes_dir, 'sequences.fa'))
 
     # Add a genome to the configuration file
@@ -110,6 +111,7 @@ def build_snpeff_db(reference, gff, snpeff_db, snpeff_config):
     else:
         # build db
         call = ["{} build -config {} -dataDir {} -gff3 -v {}".format(snpeff, snpeff_config, snpeff_data_dir, index_base)]
+        # call = ["{} build -config {} -dataDir {} -gtf22 -v {}".format(snpeff, snpeff_config, snpeff_data_dir, index_base)]
         cmd = " ".join(call)
         logging.info("building SnpEFF database: {}".format(gff))
         run_shell_command(cmd=cmd, raise_errors=False, extra_env=None)
@@ -197,18 +199,24 @@ def filter_variants(vcf_file):
     # locate the executable
     snpsift = find_executable(['SnpSift'])
 
+    vcf_pl = 'vcfEffOnePerLine.pl'
+    pwd = os.path.dirname(__file__)
+    vcf_path = os.path.join(pwd, vcf_pl)
+    print(vcf_path)
+
     sample = os.path.basename(vcf_file).rsplit(".", 2)[0]
     snpsift_file = os.path.join(os.path.dirname(vcf_file), sample + '.snpSift.table.txt')
 
     if os.path.exists(snpsift_file):
         logging.critical("SnpSift file {} exists!".format(snpsift_file))
     else:
-        call = ['{} extractFields -s "," -e "." {} CHROM POS REF ALT "ANN[*].GENE" "ANN[*].GENEID" "ANN[*].IMPACT" '
+        call = ['zcat {} | {} | {} extractFields - CHROM POS REF ALT "ANN[*].GENE" "ANN[*].GENEID" "ANN[*].IMPACT" '
                 '"ANN[*].EFFECT" "ANN[*].FEATURE" "ANN[*].FEATUREID" "ANN[*].BIOTYPE" "ANN[*].RANK" "ANN[*].HGVS_C" '
                 '"ANN[*].HGVS_P" "ANN[*].CDNA_POS" "ANN[*].CDNA_LEN" "ANN[*].CDS_POS" "ANN[*].CDS_LEN" "ANN[*].AA_POS" '
                 '"ANN[*].AA_LEN" "ANN[*].DISTANCE" "EFF[*].EFFECT" "EFF[*].FUNCLASS" "EFF[*].CODON" "EFF[*].AA" '
-                '"EFF[*].AA_LEN" > {}'.format(snpsift, vcf_file, snpsift_file)]
+                '"EFF[*].AA_LEN" > {}'.format(vcf_file, vcf_path, snpsift, snpsift_file)]
         cmd = " ".join(call)
+        print(cmd)
         # filter
         run_shell_command(cmd=cmd, raise_errors=False, extra_env=None)
     return snpsift_file

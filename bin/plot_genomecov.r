@@ -16,6 +16,7 @@ library(dplyr)
 library(svglite)
 library(gridExtra)      # provides side-by-side plotting
 library(zoo)
+library(data.table)
 #library(ggpubr)
 #library(gplots)
 
@@ -24,7 +25,8 @@ library(zoo)
 CHARACTER_command_args <- commandArgs(trailingOnly=TRUE)
 #CHARACTER_command_args <- "/Users/jjuma/Work/Sam_Oyola/AMR_PT/Camp-005-output/bedtools/coverage/Camp.coverage.gz"
 gzipped = gzfile(CHARACTER_command_args[1], 'rt')
-data <- read.csv(gzipped, header=F, sep = "\t")
+# data <- read.csv(gzipped, header=F, sep = "\t")
+data <- data.table::fread(gzipped)
 data <- data %>% dplyr::rename(chrom="V1", locus="V2", coverage="V3")
 data$locus <- as.numeric(data$locus)
 data$chrom <- as.character(data$chrom)

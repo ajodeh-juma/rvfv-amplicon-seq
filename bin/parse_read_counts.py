@@ -24,7 +24,8 @@ def parse_args():
                                      description=dedent('''Parse sorted alignment stats''')
                                      )
     required_group = parser.add_argument_group(dedent('''input options'''))
-    required_group.add_argument('--stats', metavar="<FILE>", type=str, dest='stats', default=None, help='path to the read count stats file')
+    required_group.add_argument('--stats', metavar="<FILE>", type=str, dest='stats', default=None,
+                                help='path to the read count stats file')
     parser.add_argument('--output', metavar='<FILE>', type=str, dest='output', help='output file to write stats')
     return parser
 
@@ -40,7 +41,6 @@ def get_read_stats(stats, output):
     sampleid = os.path.basename(stats)
     sampleid = os.path.splitext(sampleid)[0]
     print(sampleid)
-
 
     for line in open(stats):
         line = line.strip()
@@ -59,6 +59,7 @@ def main():
     parser = parse_args()
     args = parser.parse_args()
     get_read_stats(stats=args.stats, output=args.output)
+
 
 if __name__ == '__main__':
     main()

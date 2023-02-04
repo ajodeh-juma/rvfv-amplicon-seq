@@ -195,7 +195,6 @@ def write_to_csv(sample, perc_n, perc_coverage, largest_n_gap, aligned_reads, co
                'bam': bamfile,
                'qc_pass': qc_pass}
 
-    print(qc_line)
     with open(outfile, 'w') as csvfile:
         header = qc_line.keys()
         writer = csv.DictWriter(csvfile, fieldnames=header)

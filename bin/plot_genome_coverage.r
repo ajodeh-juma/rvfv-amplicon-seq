@@ -27,6 +27,7 @@ library(viridis)
 library(reshape2)
 library(dplyr)
 library(cowplot)
+library(data.table)
 
 ###########################################
 #######           checks           #######
@@ -59,7 +60,8 @@ if (is.null(args$metadata)) {
   metadata = data.frame(sample_name=character(), Ct=double())
 } else {
   # read the metadata table (having Ct values)
-  metadata.raw <- read.table(args$metadata, header=T, sep=",")
+  # metadata.raw <- read.table(args$metadata, header=T, sep=",")
+  metadata.raw <- data.table::fread(args$metadata)
   metadata = subset(metadata.raw, Ct != "NA")
   metadata$Ct = as.numeric(as.character(metadata$Ct))
 }
@@ -72,7 +74,8 @@ coverage_list <- list()
 for (i in 1:length(input_files)){
   fn = input_files[i]
   sample_name <- strsplit(basename(fn), ".", fixed=T)[[1]][1]
-  dat <- read.table(fn, stringsAsFactors = F, header=T)
+  # dat <- read.table(fn, stringsAsFactors = F, header=T)
+  dat <- data.table::fread(fn)
   dat$sample_name <- sample_name
   coverage_list[[i]] <- dat
 }

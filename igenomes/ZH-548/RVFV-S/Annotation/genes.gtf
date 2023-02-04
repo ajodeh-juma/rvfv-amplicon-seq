@@ -1,0 +1,12 @@
+#gtf-version 2.2
+#!genome-build ViralMultiSegProj14631
+#!genome-build-accession NCBI_Assembly:GCF_000847345.1
+NC_014395.1	RefSeq	gene	35	832	.	+	.	gene_id "RVFV_sS_gp1"; transcript_id ""; db_xref "GeneID:9538292"; gbkey "Gene"; gene "NSs"; gene_biotype "protein_coding"; locus_tag "RVFV_sS_gp1"; 
+NC_014395.1	RefSeq	CDS	35	829	.	+	0	gene_id "RVFV_sS_gp1"; transcript_id "unassigned_transcript_3"; gbkey "CDS"; gene "NSs"; locus_tag "RVFV_sS_gp1"; product "non-structural protein"; protein_id "YP_003848706.1"; exon_number "1"; 
+NC_014395.1	RefSeq	start_codon	35	37	.	+	0	gene_id "RVFV_sS_gp1"; transcript_id "unassigned_transcript_3"; gbkey "CDS"; gene "NSs"; locus_tag "RVFV_sS_gp1"; product "non-structural protein"; protein_id "YP_003848706.1"; exon_number "1"; 
+NC_014395.1	RefSeq	stop_codon	830	832	.	+	0	gene_id "RVFV_sS_gp1"; transcript_id "unassigned_transcript_3"; gbkey "CDS"; gene "NSs"; locus_tag "RVFV_sS_gp1"; product "non-structural protein"; protein_id "YP_003848706.1"; exon_number "1"; 
+NC_014395.1	RefSeq	gene	915	1652	.	-	.	gene_id "RVFV_sS_gp2"; transcript_id ""; db_xref "GeneID:9538291"; gbkey "Gene"; gene "NP"; gene_biotype "protein_coding"; locus_tag "RVFV_sS_gp2"; 
+NC_014395.1	RefSeq	CDS	918	1652	.	-	0	gene_id "RVFV_sS_gp2"; transcript_id "unassigned_transcript_4"; gbkey "CDS"; gene "NP"; locus_tag "RVFV_sS_gp2"; product "nucleocapsid"; protein_id "YP_003848707.1"; exon_number "1"; 
+NC_014395.1	RefSeq	start_codon	1650	1652	.	-	0	gene_id "RVFV_sS_gp2"; transcript_id "unassigned_transcript_4"; gbkey "CDS"; gene "NP"; locus_tag "RVFV_sS_gp2"; product "nucleocapsid"; protein_id "YP_003848707.1"; exon_number "1"; 
+NC_014395.1	RefSeq	stop_codon	915	917	.	-	0	gene_id "RVFV_sS_gp2"; transcript_id "unassigned_transcript_4"; gbkey "CDS"; gene "NP"; locus_tag "RVFV_sS_gp2"; product "nucleocapsid"; protein_id "YP_003848707.1"; exon_number "1"; 
+###

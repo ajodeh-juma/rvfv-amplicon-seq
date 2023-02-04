@@ -27,6 +27,7 @@ library(reshape2)
 library(ggplot2)
 library(ggforce)
 library(viridis)
+library(data.table)
 
 ###########################################
 #######           checks           ########
@@ -52,7 +53,8 @@ prefix <- args$prefix
 
 # read the counts file
 
-data <- read.csv(read.count, stringsAsFactors = F, header = T)
+# data <- read.csv(read.count, stringsAsFactors = F, header = T)
+data <- data.table::fread(read.count)
 # data <- data %>% dplyr::rename(Total="before_trim",
 #                                            Trimmed="after_trim",
 #                                            Mapped="mapped")

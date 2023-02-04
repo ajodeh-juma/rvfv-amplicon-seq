@@ -27,6 +27,7 @@ library(reshape2)
 library(dplyr)
 library(cowplot)
 library(ComplexHeatmap)
+library(data.table)
 
 ###########################################
 #######           checks           #######
@@ -62,7 +63,8 @@ coverage_list <- list()
 for (i in 1:length(input_files)){
   fn = input_files[i]
   sample_name <- strsplit(basename(fn), ".", fixed=T)[[1]][1]
-  dat <- read.table(fn, stringsAsFactors = F, header=T)
+  #dat <- read.table(fn, stringsAsFactors = F, header=T)
+  dat <- data.table::fread(fn)
   dat$sample_name <- sample_name
   
   pos.df <- dat %>% dplyr::select(start, end, amplicon_id)

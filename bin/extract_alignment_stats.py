@@ -24,7 +24,8 @@ def parse_args():
                                      description=dedent('''Parse sorted alignment stats''')
                                      )
     required_group = parser.add_argument_group(dedent('''input options'''))
-    required_group.add_argument('--flagstat', metavar="<FILE>", type=str, dest='flagstat', default=None, help='path to the forward sorted alignment flagstat file')
+    required_group.add_argument('--flagstat', metavar="<FILE>", type=str, dest='flagstat', default=None,
+                                help='path to the forward sorted alignment flagstat file')
     parser.add_argument('--output', metavar='<FILE>', type=str, dest='output', help='output file to write stats')
     return parser
 
@@ -42,7 +43,7 @@ def get_mapping_stats(flagstat, output):
 
     for line in open(flagstat):
         line = line.strip()
-        
+
         if 'mapped (' in line:
             mapped = int(line.split(" ")[0])
             if not sampleid in map_dict:
@@ -64,6 +65,7 @@ def main():
     parser = parse_args()
     args = parser.parse_args()
     get_mapping_stats(flagstat=args.flagstat, output=args.output)
+
 
 if __name__ == '__main__':
     main()

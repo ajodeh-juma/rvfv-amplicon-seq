@@ -97,10 +97,6 @@ if (!params.save_reference)  { bowtie2_build_options['publish_files'] = false }
 def bowtie2_align_options         = modules['bowtie2_align']
 if (params.save_align_intermeds) { bowtie2_align_options.publish_files.put('bam','') }
 
-// iVar trim options
-def ivar_trim_options            = modules['ivar_trim']
-ivar_trim_options.args           += params.ivar_trim_noprimer ? "" : " -e"
-
 // add options to samtools stats
 def samtools_sort_options = modules['samtools_sort']
 if (['bwa','bowtie2'].contains(params.aligner)) {
@@ -124,6 +120,11 @@ if (['bwa','bowtie2'].contains(params.aligner)) {
         samtools_sort_options.publish_files.put('bai','')
     }
 }
+
+
+// iVar trim options
+def ivar_trim_options            = modules['ivar_trim']
+ivar_trim_options.args           += params.ivar_trim_noprimer ? "" : " -e"
 
 // Get total number of mapped reads from flagstat file
 def get_mapped_from_flagstat(flagstat) {
@@ -395,7 +396,6 @@ workflow RVFVAMPLICONSEQ {
     ch_alignment_stats = PARSE_ALIGNMENT_FLAGSTAT(ch_samtools_flagstat)
 
     // MODULE: merge the read counts and mapping stats
-    
     ch_raw_counts
         .filter { row -> file(row[1]) }
         .map { it[1] }
@@ -484,8 +484,6 @@ workflow RVFVAMPLICONSEQ {
     // MODULE: generate consensus qc metrics
     ch_consensus_qc = ch_markduplicates_bam.join(IVAR_CONSENSUS.out.fasta)
     CONSENSUS_QC (ch_consensus_qc, ch_fasta.collect())
-
-
 
     // Remove samples that failed vcf
     ch_vcf = IVAR_VARIANTS.out.vcf

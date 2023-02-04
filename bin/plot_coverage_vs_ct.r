@@ -27,6 +27,7 @@ library(viridis)
 library(reshape2)
 library(dplyr)
 library(cowplot)
+library(data.table)
 
 ###########################################
 #######           checks           #######
@@ -59,7 +60,9 @@ if (is.null(args$metadata)) {
   metadata = data.frame(sample_name=character(), Ct=double())
 } else {
   # read the metadata table (having Ct values)
-  metadata.raw <- read.csv(args$metadata, header=T, sep=",", stringsAsFactors = F)
+  # metadata.raw <- read.csv(args$metadata, header=T, sep=",", stringsAsFactors = F)
+  metadata.raw <- data.table::fread(args$metadata)
+
   metadata <- subset(metadata.raw, Ct != "NA")
   # metadata.raw <- read.table(args$metadata, header=T, sep=",")
   # metadata = subset(metadata.raw, Ct != "NA")
@@ -71,14 +74,18 @@ if (is.null(args$metadata)) {
 ###########################################
 
 # read the consensus qc summary file
-cons <- read.csv(file = summary, sep = ",", header = TRUE)
+# cons <- read.csv(file = summary, sep = ",", header = TRUE)
+cons <- data.table::fread(file = summary)
+
 
 # merge dataframes
 data <- merge(cons, metadata, by="sample_name") # %>% rename("Host"=host)
 
-d <- data %>% 
-  arrange(desc(Ct)) %>% 
-  mutate(sample_name=factor(sample_name, sample_name)) %>% dplyr::rename(Sample="sample_name")
+# d <- data %>%
+#   arrange(desc(Ct)) %>%
+#   mutate(sample_name=factor(sample_name, sample_name)) %>% dplyr::rename(Sample="sample_name")
+ d <- data %>%
+  arrange(desc(Ct)) %>% dplyr::rename(Sample="sample_name")
 
 
 plt <- ggplot(d, aes(x = Ct, y = pct_covered_bases)) + 

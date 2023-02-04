@@ -57,11 +57,12 @@ def merge_csv(input, read_counts, prefix):
 
     rc = pd.read_csv(read_counts)
     rc = rc.rename(columns={"Sample": "sample_name"})
-    rc['pct_mapped'] = rc['mapped'] / rc['before_trim'] * 100
+    # rc['pct_mapped'] = (rc['mapped'] / (rc['after_trim'] * 2)) * 100
+    rc['pct_mapped'] = rc['mapped'] / rc['total_paired'] * 100
     rc['pct_mapped'] = rc['pct_mapped'].astype(float).round(2)
     merged = pd.merge(rc, df, on='sample_name')
     # 'num_aligned_reads',
-    merged = merged[['sample_name', 'before_trim', 'after_trim', 'mapped', 'num_aligned_reads', 'pct_mapped', 'pct_N_bases', 'pct_covered_bases', 'longest_no_N_run', 'fasta', 'bam', 'qc_pass']]
+    merged = merged[['sample_name', 'before_trim', 'after_trim', 'mapped', 'total_paired', 'pct_mapped', 'pct_N_bases', 'pct_covered_bases', 'longest_no_N_run', 'fasta', 'bam', 'qc_pass']]
     # merged = merged.rename(columns={'num_aligned_reads': 'before_trim', 'Reads_y': 'after_trim'})
     # merged = merged.drop(columns=['total_paired', 'num_aligned_reads'])
     output = prefix + '.quality.control.csv'
