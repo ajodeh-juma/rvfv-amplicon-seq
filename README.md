@@ -16,8 +16,8 @@
 
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A520.04.0-brightgreen.svg)](https://www.nextflow.io/)
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg)](https://bioconda.github.io/)
-[![Get help on Slack](http://img.shields.io/badge/slack-nf--core%20%23rvfvampliconseq-4A154B?logo=slack)](https://nfcore.slack.com/channels/rvfvampliconseq)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/ajodeh-juma/rvfvampliconseq/blob/master/LICENSE)
+[![Get help on Slack](http://img.shields.io/badge/slack-nf--core%20%23rvfvampliconseq-4A154B?logo=slack)](https://nfcore.slack.com/channels/rvfv-amplicon-seq)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ajodeh-juma/rvfv-amplicon-seq/blob/master/LICENSE)
 <!-- [![Docker](https://img.shields.io/docker/automated/nfcore/rvfvampliconseq.svg)](https://hub.docker.com/r/nfcore/rvfvampliconseq) -->
 <!-- [![GitHub Actions CI Status](https://github.com/nf-core/rvfvampliconseq/workflows/nf-core%20CI/badge.svg)](https://github.com/nf-core/rvfvampliconseq/actions) -->
 <!-- [![GitHub Actions Linting Status](https://github.com/nf-core/rvfvampliconseq/workflows/nf-core%20linting/badge.svg)](https://github.com/nf-core/rvfvampliconseq/actions) -->
@@ -170,7 +170,7 @@ Process skipping options
 All the output results will be written to the `results` directory if no `--outdir` is not used. Masked and non-masked consensus genomes will be located in `bcftools/consensus`
 
 
-See [usage docs](https://github.com/ajodeh-juma/rvfvampliconseq/usage) for all of the available options when running the pipeline.
+See [usage docs](https://github.com/ajodeh-juma/rvfv-amplicon-seq/usage) for all of the available options when running the pipeline.
 
 ## Pipeline Summary
 
