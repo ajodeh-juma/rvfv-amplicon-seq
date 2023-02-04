@@ -191,18 +191,19 @@ Generating whole genome sequences of segmented viruses has largely depended on s
 that can be adopted to other segmented viruses in order to assemble complete genomic sequences from RNA metagenomic sequencing. We implement this pipeline to
 generate complete genome sequences of Rift Valley fever virus, a tripartite virus having 3 segments - Small (S), Medium (M) and Large (L).
 
-The pipeline comes bundled with reference genome and annotation, and the user only has to specify the segment to obtain full genome sequences. The pipeline calls variants
-using 2 commonly used tools: `bcftools` or `varscan` and annotates the variants using `SnpEff` and `SnpSift`
+The pipeline comes bundled with reference genome and annotation, and the user only has to specify the segment to obtain 
+full genome sequences. The pipeline calls variants
+using `iVar` and annotates the variants using `SnpEff` and `SnpSift`
 
 ## Credits
 
-**ViCLaRA** was originally written by @ajodeh-juma with inspiration from the @nf-core team, particularly on viralrecon
+**rvfvampliconseq** was originally written by @ajodeh-juma with inspiration from the @nf-core team, particularly on viralrecon
 
 We thank the following people for their extensive assistance in the development
 of this pipeline:
 
 ## License
-ViCLaRA is free software, licensed under [GPLv3](https://github.com/ajodeh-juma/rvfvampliconseq/blob/master/LICENSE).
+rvfvampliconseq is free software, licensed under [MIT](https://github.com/ajodeh-juma/rvfvampliconseq/blob/master/LICENSE).
 
 ## Issues
 Please report any issues to the [issues page](https://github.com/ajodeh-juma/rvfvampliconseq/issues).
