@@ -43,10 +43,10 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 3. Download the pipeline
 
 ```
-git clone https://github.com/ajodeh-juma/rvfvampliconseq.git
-cd rvfvMETA
-conda env create -n rvfvampliconseq-dev1.0 -f environment.yml
-conda activate rvfvampliconseq-dev1.0
+git clone https://github.com/ajodeh-juma/rvfv-amplicon-seq.git
+cd rvfv-amplicon-seq
+conda env create -f environment.yml
+conda activate rvfvampliconseq-env
 ```
 
 ## Testing
